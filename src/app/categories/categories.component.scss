@@ -1,0 +1,29 @@
+$violet: #d6cbd3;
+$pink: #eca1a6;
+$green: #bdcebe;
+$gray: #ada397;
+
+.customcontainer{
+    display: flex;
+    justify-content: center;
+}
+.items{
+    height: 20rem;
+    width: 20%;
+    margin-left: 5px;
+    border: 5px solid $gray;
+    border-radius: 5px;
+}
+.clr{
+    background-color: $pink;
+}
+img{
+    height: auto;
+    width: 150px;;
+}
+p.a {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
