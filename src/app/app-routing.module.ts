@@ -6,7 +6,7 @@ import { SubcategoriesComponent } from './subcategories/subcategories.component'
 
 const routes: Routes = [
    { path: '', component: HomeComponent },
-  { path: 'subcategories', component: SubcategoriesComponent }
+  { path: 'subcategories/:catname', component: SubcategoriesComponent }
 
 ];
 
