@@ -9,8 +9,10 @@
 
 <div class="customcontainer">
 
-<div class="items clr" *ngFor="let item of subCategoriesfiltered">
- <p class="a"> {{item.subCat}} </p>  <br>
+<div class="items" *ngFor="let item of subCategoriesfiltered; let i = index;" 
+[ngClass]="{ clr: i%2 === 0 }"
+>
+ <p class="a">  {{item.subCat}} </p>  <br>
  <img alt="cat" src="{{item.imgPath}}">
 </div>
 <!-- <div class="items clr"> 
