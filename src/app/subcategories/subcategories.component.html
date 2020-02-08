@@ -1,7 +1,8 @@
 <app-header> </app-header>
 
 <div class="customcontainer">
-<div class="items" *ngFor="let item of subCategoriesfiltered; let i = index;" 
+    {{ categoryName }}
+<div  class="items" *ngFor="let item of subCategoriesfiltered; let i = index;" routerLink="/products/{{categoryName}}/{{item.subCatcode}}"
 [ngClass]="{ clr: i%2 === 0 }"
 >
  <p class="a">  {{item.subCat}} </p>  <br>
