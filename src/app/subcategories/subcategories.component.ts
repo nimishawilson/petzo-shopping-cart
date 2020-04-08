@@ -24,7 +24,7 @@ export class SubcategoriesComponent implements OnInit {
       { catName: 'dog', subCat: 'adoption', subCatcode: 5, imgPath: "../../assets/images/dog.png" },
       { catName: 'dog', subCat: 'toys', subCatcode: 6, imgPath: "../../assets/images/dog.png" }
     ];
-    // refer filtering array objects  https://alligator.io/js/filter-array-method/
+    // refer filtering array objects  https://alligator.io/js/filter-array-method/ 
     this.subCategoriesfiltered = categorySubcategory.filter(function (sub) {
       return sub.catName == categoryNameParam;
     });
