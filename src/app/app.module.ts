@@ -10,6 +10,7 @@ import { SubcategoriesComponent } from './subcategories/subcategories.component'
 import { ProductComponent } from './product/product.component';
 import { ShortenPipe } from './shorten.pipe';
 import { RegisterComponent } from './register/register.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './register/register.component';
     SubcategoriesComponent,
     ProductComponent,
     ShortenPipe,
-    RegisterComponent
+    RegisterComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
