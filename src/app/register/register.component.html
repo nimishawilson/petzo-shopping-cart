@@ -1,27 +1,46 @@
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
     
      <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" autocomplete="off" required>
+    <input type="text" placeholder="Enter Name" formControlName="name" autocomplete="off" required>
+    <p class="error-alert" *ngIf="registerForm.get('name').invalid && registerForm.get('name').touched"> Name is required </p>
     
      <label for="phonenumber"><b>Phone number</b></label>
-    <input type="text" placeholder="Enter Phone number" autocomplete="off" name="phonenumber" required>
+    <input type="text" placeholder="Enter Phone number" autocomplete="off" formControlName="phonenumber" required>
+    <p class="error-alert" *ngIf="registerForm.get('phonenumber').invalid && registerForm.get('phonenumber').touched"> Phone Number is required </p>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" autocomplete="off" name="email" required>
+    <input type="text" placeholder="Enter Email" autocomplete="off" formControlName="email" required>
+    <p class="error-alert" *ngIf="(registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched))">
+<span *ngIf="registerForm.get('email').errors.required">
+                  Email address is required.
+                </span>
+                <span *ngIf="registerForm.get('email').errors.email">
+                  Please enter a valid email.
+                </span>
+    </p>
 
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" autocomplete="off" name="password" required>
+    <input type="password" placeholder="Enter Password" autocomplete="off" formControlName="password" required>
+    <p class="error-alert" *ngIf="(registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched))"> 
+            <span *ngIf="registerForm.get('password').errors.required">  Password is required. </span>
+            <span *ngIf="registerForm.get('password').errors.minlength"> Please enter minimum 8 characters. </span>
+     </p>
 
     <label for="confirmpassword"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="confirmpassword" required>
+    <input type="password" placeholder="Repeat Password" formControlName="confirmpassword" required> 
+    <p class="error-alert" *ngIf="(registerForm.get('confirmpassword').invalid && (registerForm.get('confirmpassword').dirty || registerForm.get('confirmpassword').touched))"> 
+           <span *ngIf="registerForm.get('confirmpassword').errors.required"> Confirm Password is required. </span>
+            <span *ngIf="registerForm.get('confirmpassword').errors.minlength"> Please enter minimum 8 characters. </span>
+     </p>
+     <span class="error-alert" *ngIf="(registerForm.value.password !== registerForm.value.confirmpassword) && 
+     (registerForm.value.password.length>=8 && registerForm.value.confirmpassword.length>=8)"> Password mismatch </span>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" [ngStyle]="{ cursor: getCursor()}" [disabled]="registerForm.invalid" class="registerbtn">Register</button>
   </div>
   
   <div class="container signin">
